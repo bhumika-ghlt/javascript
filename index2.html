@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus ERP Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">NEXUS<span>ERP</span></div>
+            <ul>
+                <li class="nav-item active" onclick="switchModule('inventory', this)">
+                    <i class="fas fa-boxes-stacked"></i> <span>Inventory</span>
+                </li>
+                <li class="nav-item" onclick="switchModule('staff', this)">
+                    <i class="fas fa-users-gear"></i> <span>Staff Management</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1 id="module-title">Inventory Overview</h1>
+                <div class="user-profile"><i class="fas fa-circle-user"></i> Admin</div>
+            </header>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="card purple">
+                    <i class="fas fa-chart-line"></i>
+                    <div><h3>Total Value</h3><p id="total-value">$0.00</p></div>
+                </div>
+                <div class="card blue">
+                    <i class="fas fa-tag"></i>
+                    <div><h3>Total Items</h3><p id="total-items">0</p></div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <section class="table-container glass">
+                <div class="table-header">
+                    <input type="text" id="searchInput" placeholder="Search data...">
+                    <button class="add-btn" onclick="openModal()">+ Add New</button>
+                </div>
+                <table id="erp-table">
+                    <thead><tr id="table-head"></tr></thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Simple Popup Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content glass">
+            <h2>Add Record</h2>
+            <input type="text" id="input1" placeholder="Name">
+            <input type="number" id="input2" placeholder="Value/Age">
+            <button onclick="saveRecord()">Save Entry</button>
+            <button onclick="closeModal()" class="close">Cancel</button>
+        </div>
+    </div>
+
+    <script src="srcipt2.js"></script>
+</body>
+</html>
